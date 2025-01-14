@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Container from '../Container'
-import productImg1 from "../../assets/products1.png"
 import { FaHeart } from "react-icons/fa";
 import { FaCodeCompare } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
