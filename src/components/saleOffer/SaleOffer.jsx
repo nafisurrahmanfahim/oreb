@@ -1,8 +1,8 @@
 import React from 'react'
 import Container from '../Container'
-import addImg1 from "../../assets/ad_1.png"
-import addImg2 from "../../assets/ad_2.png"
-import addImg3 from "../../assets/ad_3.png"
+import addImg1 from "../../assets/ad1.png"
+import addImg2 from "../../assets/ad2.png"
+import addImg3 from "../../assets/ad3.png"
 
 const SaleOffer = () => {
   return (

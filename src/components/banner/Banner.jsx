@@ -2,7 +2,7 @@ import React from 'react'
 import Ban from "../../assets/banner.png"
 import Slider from "react-slick";
 import Container from '../Container';
-import towImg from "../../assets/2.png"
+import towImg from "../../assets/two.png"
 import returnImg from "../../assets/return.png"
 import { MdLocalShipping } from "react-icons/md";
 
