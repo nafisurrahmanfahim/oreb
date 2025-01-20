@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import Slider from "react-slick";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { ApiData } from '../ContextApi';
+import { Link } from "react-router";
 
 
 function SampleNextArrow(props) {
@@ -53,7 +54,9 @@ const NewArrivals = () => {
                             <div className="w-[90%]">
                                 <div className="relative group overflow-y-hidden bg-[#efefef]">
                                     <div className="relative">
-                                        <img className='w-[100%]' src={item.thumbnail} alt="" />
+                                        <Link to="/shop">
+                                            <img className='w-[100%]' src={item.thumbnail} alt="" />
+                                        </Link>
                                         <p className='absolute top-[20px] left-[20px] py-[9px] px-[30px] bg-[#262626] text-[#fff] font-dm font-bold text-[14px] inline-block'>New</p>
                                     </div>
                                     <div className="absolute bottom-0 left-0 w-full h-[0] opacity-0 bg-[#fff] group-hover:h-[150px] group-hover:opacity-100 duration-300 ease-in-out">

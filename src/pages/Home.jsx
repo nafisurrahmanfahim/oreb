@@ -6,12 +6,11 @@ import SaleOffer from '../components/saleOffer/SaleOffer'
 import NewArrivals from '../components/newArrivals/NewArrivals'
 import BeastPhone from '../components/beastPhone/BeastPhone'
 import Offer from '../components/special offer/Offer'
+import Footer from '../components/footer/Footer'
 
 const Home = () => {
   return (
     <>
-        <Header/>
-        <Navbar/>
         <Banner/>
         <SaleOffer/>
         <NewArrivals/>
