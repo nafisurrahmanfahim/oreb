@@ -5,6 +5,7 @@ import { FaCodeCompare, FaHeart, FaPlus } from "react-icons/fa6";
 import { IoMdArrowDropup } from "react-icons/io";
 import { ApiData } from '../components/ContextApi';
 import { FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 const Shop = () => {
@@ -91,7 +92,9 @@ const Shop = () => {
                 <div className="w-[24%]">
                   <div className="relative group overflow-y-hidden bg-[#efefef]">
                     <div className="relative pb-[20px]">
+                      <Link to={`${item.id}`}>
                       <img className='w-[100%]' src={item.thumbnail} alt="" />
+                      </Link>
                       <p className='absolute top-[20px] left-[20px] py-[9px] px-[30px] bg-[#262626] text-[#fff] font-dm font-bold text-[14px] inline-block'>New</p>
                     </div>
                     <div className="absolute bottom-0 left-0 w-full h-[0] opacity-0 bg-[#fff] group-hover:h-[150px] group-hover:opacity-100 duration-300 ease-in-out">
