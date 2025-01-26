@@ -1,18 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../Container'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Product from '../../assets/products1.png'
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
-// import axios from 'axios';
+import axios from 'axios';
 
 const ProductDetails = () => {
-
+  // let productId = useParams()
   // let [singleProduct, setSingleProduct] = useState({})
-  // let singleData = () => {
-  //   axios.get('https://dummyjson.com/products?sortBy=title&order=asc').then((response) => {
-  //     setSingleProduct(response.data);
+  // let singleData = ()=> {
+  //   axios.get(`https://dummyjson.com/products?sortBy=title&order=asc${productId.id}`).then((response)=> {
+  //     console.log(response.data);
   //   })
-  // }  
+  // }
+
+  let productId = useParams()
+  let [singleProduct, setSingleProduct] = useState({})
+  
+  let singleData = ()=> {
+    axios.get(`https://dummyjson.com/products/${productId.id}`).then((response)=> {
+      setSingleProduct(response.data);
+    })
+  }
+  
+  console.log(singleProduct);
+  
+
+  useEffect(()=> {
+    singleData()
+  }, [])
+  
+  
 
   // useEffect(() => {
   //   singleData()
@@ -40,8 +58,9 @@ const ProductDetails = () => {
         </nav>
 
         <div className="flex justify-center py-[60px]">
+
           <div className="w-[40%]">
-            <img src={Product} alt="" />
+            <img src={singleProduct.thumbnail} alt="" />
           </div>
 
           <div className="w-[40%]">

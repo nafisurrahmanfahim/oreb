@@ -4,6 +4,7 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import Shop from './pages/Shop'
 import Layout from './components/Layout'
 import ProductDetails from './components/product/ProductDetails'
+import About from './pages/About'
 
 let multiPage = createBrowserRouter(
   createRoutesFromElements(
@@ -11,6 +12,7 @@ let multiPage = createBrowserRouter(
       <Route index element={<Home/>}></Route>
       <Route path='/shop' element={<Shop/>}></Route>
       <Route path='/shop/:id' element={<ProductDetails/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
     </Route>
   )
 )

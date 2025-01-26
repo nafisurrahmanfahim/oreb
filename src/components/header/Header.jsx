@@ -19,7 +19,9 @@ const Header = () => {
                         <li className='font-normal text-[14px] font-dm'>
                             <Link to={"/shop"}>Shop</Link>
                         </li>
-                        <li className='font-normal text-[14px] font-dm'>About</li>
+                        <li className='font-normal text-[14px] font-dm'>
+                            <Link to={"/about"}>About</Link>
+                        </li>
                         <li className='font-normal text-[14px] font-dm'>Contact</li>
                         <li className='font-normal text-[14px] font-dm'>Journal</li>
                     </ul>

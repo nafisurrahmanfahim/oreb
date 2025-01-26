@@ -1,14 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Container from '../components/Container'
 import { FaCodeCompare, FaHeart, FaPlus } from "react-icons/fa6";
 import { IoMdArrowDropup } from "react-icons/io";
 import { ApiData } from '../components/ContextApi';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { RxCross2 } from "react-icons/rx";
 
 
 const Shop = () => {
   let data = useContext(ApiData)
+  let [show, setShow] = useState(false)
+  let [colorShow, setColorShow] = useState(false)
+  let handleClick = () => {
+    setShow(!show)
+  }
+
+
   return (
     <section className='py-[124px]'>
       <Container>
@@ -20,8 +28,9 @@ const Shop = () => {
           <div className="left w-[20%]">
             <div className="font-dm">
               <p className="font-bold text-[#262626] text-[20px]">Shop by Category</p>
-              <ul className='py-[35px]'>
-                <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 1 <FaPlus /></li>
+              <ul className='py-[35px] cursor-pointer'>
+                <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5" onClick={handleClick}>Category 1{show == true ? <RxCross2 /> : <FaPlus />}</li>
+                {show && <div className=''>Hello</div>}
                 <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 2 <FaPlus /></li>
                 <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 3 <FaPlus /></li>
                 <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 4 <FaPlus /></li>
@@ -30,37 +39,38 @@ const Shop = () => {
             </div>
 
             <div className="">
-              <p className="font-dm font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5">Shop by Color <IoMdArrowDropup /></p>
-              <div className="py-[44px]">
-                <div className="flex items-center gap-[15px] py-[10px]">
-                  <div className="w-[11px] h-[11px] bg-[#000000] rounded-[50%]"></div>
-                  <p className="font-dm font-normal text-[#767676] text-[16px]">Color 1</p>
-                </div>
+              <p className="font-dm font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5 cursor-pointer" onClick={() => setColorShow(!colorShow)}>Shop by Color <IoMdArrowDropup /></p>
+              {colorShow &&
+                <div className="py-[44px]">
+                  <div className="flex items-center gap-[15px] py-[10px]">
+                    <div className="w-[11px] h-[11px] bg-[#000000] rounded-[50%]"></div>
+                    <p className="font-dm font-normal text-[#767676] text-[16px]">Color 1</p>
+                  </div>
 
-                <div className="flex items-center gap-[15px] py-[10px]">
-                  <div className="w-[11px] h-[11px] bg-[#FF8686] rounded-[50%]"></div>
-                  <p className="font-dm font-normal text-[#767676] text-[16px]">Color 2</p>
-                </div>
+                  <div className="flex items-center gap-[15px] py-[10px]">
+                    <div className="w-[11px] h-[11px] bg-[#FF8686] rounded-[50%]"></div>
+                    <p className="font-dm font-normal text-[#767676] text-[16px]">Color 2</p>
+                  </div>
 
-                <div className="flex items-center gap-[15px] py-[10px]">
-                  <div className="w-[11px] h-[11px] bg-[#7ED321] rounded-[50%]"></div>
-                  <p className="font-dm font-normal text-[#767676] text-[16px]">Color 3</p>
-                </div>
+                  <div className="flex items-center gap-[15px] py-[10px]">
+                    <div className="w-[11px] h-[11px] bg-[#7ED321] rounded-[50%]"></div>
+                    <p className="font-dm font-normal text-[#767676] text-[16px]">Color 3</p>
+                  </div>
 
-                <div className="flex items-center gap-[15px] py-[10px]">
-                  <div className="w-[11px] h-[11px] bg-[#B6B6B6] rounded-[50%]"></div>
-                  <p className="font-dm font-normal text-[#767676] text-[16px]">Color 4</p>
-                </div>
+                  <div className="flex items-center gap-[15px] py-[10px]">
+                    <div className="w-[11px] h-[11px] bg-[#B6B6B6] rounded-[50%]"></div>
+                    <p className="font-dm font-normal text-[#767676] text-[16px]">Color 4</p>
+                  </div>
 
-                <div className="flex items-center gap-[15px] py-[10px]">
-                  <div className="w-[11px] h-[11px] bg-[#15CBA5] rounded-[50%]"></div>
-                  <p className="font-dm font-normal text-[#767676] text-[16px]">Color 5</p>
+                  <div className="flex items-center gap-[15px] py-[10px]">
+                    <div className="w-[11px] h-[11px] bg-[#15CBA5] rounded-[50%]"></div>
+                    <p className="font-dm font-normal text-[#767676] text-[16px]">Color 5</p>
+                  </div>
                 </div>
-              </div>
-
+              }
             </div>
 
-            <div className="font-dm py-[53px]">
+            <div className="font-dm pb-[53px] pt-[15px]">
               <p className="font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5">Shop by Brand <IoMdArrowDropup /></p>
               <ul className="py-[35px] text-[#767676]">
                 <li className="font-normal text-[16px] py-[15px]">Brand 1</li>
