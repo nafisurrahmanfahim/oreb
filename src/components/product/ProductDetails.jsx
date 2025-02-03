@@ -82,7 +82,7 @@ const ProductDetails = () => {
             <h3 className='font-dm'>Products</h3>
             <div className="text-[20px] flex items-center gap-1">
               {clientRating}
-              <span className='font-dm font-normal text-[#767676] text-[14px]'>1 Review</span>
+              <span className='font-dm font-normal text-[#767676] text-[14px]'>Review {singleProduct?.reviews?.length}</span>
             </div>
             <h3 className="font-dm font-bold text-[20px] text-[#262626] pt-[14px]">${singleProduct.price}</h3>
             <div className="flex items-center pt-[48px]">

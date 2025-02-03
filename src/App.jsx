@@ -6,6 +6,7 @@ import Layout from './components/Layout'
 import ProductDetails from './components/product/ProductDetails'
 import About from './pages/About' 
 import Cart from './pages/Cart'
+import Error from './pages/Error'
 
 let multiPage = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ let multiPage = createBrowserRouter(
       <Route path='/shop/:id' element={<ProductDetails/>}></Route>
       <Route path='/about' element={<About/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='*' element={<Error/>}></Route>
     </Route>
   )
 )

@@ -1,45 +1,61 @@
 import React, { useContext, useState } from 'react'
 import Container from '../components/Container'
-import { FaCodeCompare, FaHeart, FaPlus } from "react-icons/fa6";
-import { IoMdArrowDropup } from "react-icons/io";
+import { FaPlus } from "react-icons/fa6";
+
 import { ApiData } from '../components/ContextApi';
-import { FaShoppingCart } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { RxCross2 } from "react-icons/rx";
+
+import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import Pagination from '../components/pagination/Pagination';
+import Post from '../components/pagination/Post';
 
 
 const Shop = () => {
   let data = useContext(ApiData)
-  let [show, setShow] = useState(false)
   let [colorShow, setColorShow] = useState(false)
-  let handleClick = () => {
-    setShow(!show)
+  let [brandShow, setBrandShow] = useState(false)
+  let [categoryShow, setCategoryShow] = useState(true)
+
+  let info = useContext(ApiData)
+  let [currentPage, setCurrentPage] = useState(1)
+  let [perPage, setPerPage] = useState(6)
+  let lastPage = currentPage * perPage;
+  let firstPage = lastPage - perPage
+  let allPage = info.slice(firstPage, lastPage)
+
+  let pageNumber = []
+
+  for(let i = 0; i < Math.ceil(info.length / perPage); i++) {
+    pageNumber.push(i);
   }
 
+  let Paginate = (state)=> {
+    setCurrentPage(state + 1)
+  }
 
   return (
-    <section className='py-[124px]'>
+    <section className='pt-[124px]'>
       <Container>
         <div className="">
           <h3 className="font-dm font-bold text-[#262626] text-[49px]">Products</h3>
         </div>
 
-        <div className="py-[130px] flex justify-between">
-          <div className="left w-[20%]">
+        <div className="pt-[100px] flex justify-between">
+          <div className="left w-[20%] overflow-y-auto h-[870px] flex flex-col">
             <div className="font-dm">
-              <p className="font-bold text-[#262626] text-[20px]">Shop by Category</p>
-              <ul className='py-[35px] cursor-pointer'>
-                <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5" onClick={handleClick}>Category 1{show == true ? <RxCross2 /> : <FaPlus />}</li>
-                {show && <div className=''>Hello</div>}
-                <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 2 <FaPlus /></li>
-                <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 3 <FaPlus /></li>
-                <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 4 <FaPlus /></li>
-                <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 5 <FaPlus /></li>
-              </ul>
+              <p className="font-bold text-[#262626] text-[20px] flex justify-between items-center py-[15px] pr-5 cursor-pointer" onClick={() => setCategoryShow(!categoryShow)}>Shop by Category {categoryShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
+              {categoryShow &&
+                <ul className='py-[35px] cursor-pointer'>
+                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 1<FaPlus /></li>
+                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 2 <FaPlus /></li>
+                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 3 <FaPlus /></li>
+                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 4 <FaPlus /></li>
+                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 5 <FaPlus /></li>
+                </ul>
+              }
             </div>
 
             <div className="">
-              <p className="font-dm font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5 cursor-pointer" onClick={() => setColorShow(!colorShow)}>Shop by Color <IoMdArrowDropup /></p>
+              <p className="font-dm font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5 cursor-pointer" onClick={() => setColorShow(!colorShow)}>Shop by Color {colorShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
               {colorShow &&
                 <div className="py-[44px]">
                   <div className="flex items-center gap-[15px] py-[10px]">
@@ -71,17 +87,18 @@ const Shop = () => {
             </div>
 
             <div className="font-dm pb-[53px] pt-[15px]">
-              <p className="font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5">Shop by Brand <IoMdArrowDropup /></p>
-              <ul className="py-[35px] text-[#767676]">
-                <li className="font-normal text-[16px] py-[15px]">Brand 1</li>
-                <li className="font-normal text-[16px] py-[15px]">Brand 2</li>
-                <li className="font-normal text-[16px] py-[15px]">Brand 3</li>
-                <li className="font-normal text-[16px] py-[15px]">Brand 4</li>
-                <li className="font-normal text-[16px] py-[15px]">Brand 5</li>
-              </ul>
+              <p className="font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5 cursor-pointer" onClick={() => setBrandShow(!brandShow)}>Shop by Brand {brandShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
+              {brandShow &&
+                <ul className="py-[35px] text-[#767676]">
+                  <li className="font-normal text-[16px] py-[15px]">Brand 1</li>
+                  <li className="font-normal text-[16px] py-[15px]">Brand 2</li>
+                  <li className="font-normal text-[16px] py-[15px]">Brand 3</li>
+                  <li className="font-normal text-[16px] py-[15px]">Brand 4</li>
+                  <li className="font-normal text-[16px] py-[15px]">Brand 5</li>
+                </ul>}
             </div>
 
-            <div className="font-dm py-[53px]">
+            <div className="font-dm">
               <p className="font-bold text-[20px]">Shop by Price</p>
               <ul className="font-dm text-[#767676] py-[30px]">
                 <li className="font-normal text-[16px] py-[10px]">$0.00 - $9.99</li>
@@ -91,42 +108,12 @@ const Shop = () => {
                 <li className="font-normal text-[16px] py-[10px]">$40.00 - $69.99</li>
               </ul>
             </div>
-
           </div>
 
-          <div className="right w-[80%]">
-            <div className="flex flex-wrap justify-between">
-              {data.map((item) => (
-                <div className="w-[24%]">
-                  <div className="relative group overflow-y-hidden bg-[#efefef]">
-                    <div className="relative pb-[20px]">
-                      <Link to={`${item.id}`}>
-                        <img className='w-[100%]' src={item.thumbnail} alt="" />
-                      </Link>
-                      <p className='absolute top-[20px] left-[20px] py-[9px] px-[30px] bg-[#262626] text-[#fff] font-dm font-bold text-[14px] inline-block'>New</p>
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-full h-[0] opacity-0 bg-[#fff] group-hover:h-[150px] group-hover:opacity-100 duration-300 ease-in-out">
-                      <ul className='flex justify-end items-center h-full'>
-                        <Link to={`${item.id}`}>
-                          <div className="pr-[30px]">
-                            <li className='flex gap-x-[15px] items-center justify-end py-1 font-dm font-normal text-[16px] text-[#767676] cursor-pointer'>Add to Wish List <FaHeart /></li>
-                            <li className='flex gap-x-[15px] items-center justify-end py-1 font-dm font-normal text-[16px] text-[#767676] cursor-pointer'>compare <FaCodeCompare /></li>
-                            <li className='flex gap-x-[15px] items-center justify-end py-1 font-dm font-bold text-[16px] text-[#262626] cursor-pointer'>Add to Cart <FaShoppingCart /></li>
-                          </div>
-                        </Link>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="pt-[24px] pb-[15px] flex justify-between items-center px-2">
-                    <h3 className='font-dm font-bold text-[17px] text-[#262626]'>{item.title}</h3>
-                    <p className="font-dm font-normal text-[16px] text-[#767676]">${item.price}</p>
-                  </div>
-                  <h3 className='font-dm font-normal text-[16px] text-[#767676] pl-2'>{item.category}</h3>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Post allPage={allPage}/>
+        </div>
+        <div className="text-center py-[50px]">
+          <Pagination pageNumber={pageNumber} Paginate={Paginate}/>
         </div>
       </Container>
     </section>
