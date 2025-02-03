@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FaCodeCompare, FaHeart, FaPlus } from "react-icons/fa6";
+import { ApiData } from '../ContextApi';
 
 const Post = ({allPage}) => {
+    
+    let data = useContext(ApiData)
+    console.log(data);
     
     return (
         <div className="right w-[80%]">
             <div className="flex flex-wrap justify-between pt-4">
-                {allPage.map((item) => (
+                {data.map((item) => (
                     <div className="w-[32%]">
                         <div className="relative group overflow-y-hidden bg-[#efefef]">
                             <div className="relative pb-[20px]">
