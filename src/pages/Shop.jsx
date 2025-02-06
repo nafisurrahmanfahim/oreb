@@ -22,6 +22,7 @@ const Shop = () => {
   let firstPage = lastPage - perPage
   let allPage = info.slice(firstPage, lastPage)
 
+
   let pageNumber = []
 
   for(let i = 0; i < Math.ceil(info.length / perPage); i++) {
