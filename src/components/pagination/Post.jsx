@@ -2,11 +2,50 @@ import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FaCodeCompare, FaHeart, FaPlus } from "react-icons/fa6";
+import { IoGrid } from "react-icons/io5";
+import { FaThList } from "react-icons/fa";
 
-const Post = ({allPage}) => {
-    
+const Post = ({ allPage }) => {
+
     return (
+
         <div className="right w-[80%]">
+            <div className="flex justify-between">
+                <div className="flex gap-[20px]">
+                    <div className='flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer'>
+                        <IoGrid />
+                    </div>
+                    <div className="flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer">
+                        <FaThList />
+                    </div>
+                </div>
+
+                <div className="flex gap-[100px]">
+
+                    <div className="flex">
+                        <h3 className='font-dm font-normal text-[16px] text-[#767676] items-center pr-2 pt-1'>Sort By: </h3>
+                        <select name="" id="" className='w-[310px] border-[1px] text-right'>
+                            <option value="">Sort 1</option>
+                            <option value="">Sort 2</option>
+                            <option value="">Sort 3</option>
+                            <option value="">Sort 4</option>
+                            <option value="">Sort 5</option>
+                        </select>
+                    </div>
+
+                    <div className="flex">
+                        <h3 className='font-dm font-normal text-[16px] text-[#767676] items-center pr-2 pt-1'>Show: </h3>
+                        <select name="" id="" className='w-[139px] border-[1px] text-right'>
+                            <option value="">10</option>
+                            <option value="">20</option>
+                            <option value="">30</option>
+                            <option value="">40</option>
+                            <option value="">50</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
             <div className="flex flex-wrap justify-between pt-4">
                 {allPage.map((item) => (
                     <div className="w-[32%]">

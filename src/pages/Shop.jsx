@@ -33,6 +33,19 @@ const Shop = () => {
     setCurrentPage(state + 1)
   }
 
+  let next = ()=> {
+    if(currentPage < pageNumber.length) (
+      setCurrentPage((state)=> state + 1)
+    )
+  }
+
+
+  let prev = ()=> {
+    if(currentPage > 1)
+    setCurrentPage((state)=> state - 1)
+  }
+
+
   return (
     <section className='pt-[124px]'>
       <Container>
@@ -114,7 +127,7 @@ const Shop = () => {
           <Post allPage={allPage}/>
         </div>
         <div className="text-center py-[50px]">
-          <Pagination pageNumber={pageNumber} Paginate={Paginate}/>
+          <Pagination pageNumber={pageNumber} Paginate={Paginate} next={next} prev={prev} currentPage={currentPage} />
         </div>
       </Container>
     </section>
