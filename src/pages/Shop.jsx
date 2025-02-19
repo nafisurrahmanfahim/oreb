@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Container from '../components/Container'
 import { FaPlus } from "react-icons/fa6";
 
@@ -25,25 +25,39 @@ const Shop = () => {
 
   let pageNumber = []
 
-  for(let i = 0; i < Math.ceil(info.length / perPage); i++) {
+  for (let i = 0; i < Math.ceil(info.length / perPage); i++) {
     pageNumber.push(i);
   }
 
-  let Paginate = (state)=> {
+  let Paginate = (state) => {
     setCurrentPage(state + 1)
   }
 
-  let next = ()=> {
-    if(currentPage < pageNumber.length) (
-      setCurrentPage((state)=> state + 1)
+  let next = () => {
+    if (currentPage < pageNumber.length) (
+      setCurrentPage((state) => state + 1)
     )
   }
 
 
-  let prev = ()=> {
-    if(currentPage > 1)
-    setCurrentPage((state)=> state - 1)
+  let prev = () => {
+    if (currentPage > 1)
+      setCurrentPage((state) => state - 1)
   }
+
+
+  let [categoryFilter, setCategoryFilter] = useState([])
+  let handleCategory = (citem)=> {
+    let cateFilter = info.filter((item)=> item.category == citem)
+    setCategoryFilter(cateFilter)
+  }
+  console.log(categoryFilter);
+  
+
+  let [category, setCategory] = useState([])
+  useEffect(() => {
+    setCategory([...new Set(info.map((item) => item.category))])
+  }, [info])
 
 
   return (
@@ -59,11 +73,9 @@ const Shop = () => {
               <p className="font-bold text-[#262626] text-[20px] flex justify-between items-center py-[15px] pr-5 cursor-pointer" onClick={() => setCategoryShow(!categoryShow)}>Shop by Category {categoryShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
               {categoryShow &&
                 <ul className='py-[35px] cursor-pointer'>
-                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 1<FaPlus /></li>
-                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 2 <FaPlus /></li>
-                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 3 <FaPlus /></li>
-                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 4 <FaPlus /></li>
-                  <li className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">Category 5 <FaPlus /></li>
+                  {category.map((item) => (
+                    <li onClick={()=> handleCategory(item)} className="font-normal text-[#767676] text-[16px] flex justify-between py-[15px] pr-5">{item}<FaPlus /></li>
+                  ))}
                 </ul>
               }
             </div>
@@ -124,7 +136,7 @@ const Shop = () => {
             </div>
           </div>
 
-          <Post allPage={allPage}/>
+          <Post allPage={allPage} />
         </div>
         <div className="text-center py-[50px]">
           <Pagination pageNumber={pageNumber} Paginate={Paginate} next={next} prev={prev} currentPage={currentPage} />

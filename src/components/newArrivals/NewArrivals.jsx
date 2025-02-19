@@ -14,7 +14,7 @@ function SampleNextArrow(props) {
     return (
         <div
             className={className}
-            style={{ ...style, position: "absolute", top: "50%", right: "0", transform: "translateY(-50%)", width: "64px", height: "64px", background: "#d8d8d8", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50%", cursor: "pointer" }}
+            style={{ ...style, position: "absolute", top: "50%", right: "0", transform: "translateY(-50%)", width: "64px", height: "64px", background: "#d8d8d8", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50%", cursor: "pointer"}}
             onClick={onClick}
         ><FaArrowRightLong /></div>
     );
@@ -25,7 +25,7 @@ function SamplePrevArrow(props) {
     return (
         <div
             className={className}
-            style={{ ...style, position: "absolute", top: "50%", left: "0", zIndex: "999", transform: "translateY(-50%)", width: "64px", height: "64px", background: "#d8d8d8", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50%", cursor: "pointer" }}
+            style={{ ...style, position: "absolute", top: "50%", left: "0", zIndex: "10", transform: "translateY(-50%)", width: "64px", height: "64px", background: "#d8d8d8", display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "50%", cursor: "pointer",  }}
             onClick={onClick}
         ><FaArrowLeftLong /></div>
     );

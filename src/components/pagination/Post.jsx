@@ -19,10 +19,10 @@ const Post = ({ allPage }) => {
         <div className="right w-[80%]">
             <div className="flex justify-between">
                 <div className="flex gap-[20px]">
-                    <div onClick={()=> setActive("")} className='flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer'>
+                    <div onClick={()=> setActive("")} className={`${active == "active" ? "flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer" : "flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#fff] bg-[#262626] cursor-pointer"}`}>
                         <IoGrid />
                     </div>
-                    <div onClick={handleActive} className="flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer">
+                    <div onClick={handleActive} className={`${active == "active" ? "flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#fff] bg-[#262626] duration-300 ease-in-out cursor-pointer" : "flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer"}`}>
                         <FaThList />
                     </div>
                 </div>

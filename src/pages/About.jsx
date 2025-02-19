@@ -1,15 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Container from '../components/Container'
 import product from '../assets/products1.png'
 import { Link } from 'react-router-dom'
-import { ApiData } from '../components/ContextApi'
-
+import { ApiData } from '../components/ContexxtApi'
+import airPood1 from '../assets/airPoods.png'
 const About = () => {
 
-  let data = useContext(ApiData)
 
   return (
-    <section className='py-[124px]'>
+    <section className='py-[180px]'>
       <Container>
         <h3 className="font-dm font-bold text-[49px] text-[#262626]">About</h3>
         <nav class="flex py-[10px]" aria-label="Breadcrumb">
@@ -29,12 +28,12 @@ const About = () => {
             </li>
           </ol>
         </nav>
-        <div className="flex justify-center gap-10 py-[128px]">
-          {data.slice(6,8).map((item) => (
-            <div className="w-[30%] h-[360px] bg-[#ebeaea] flex justify-center items-center">
-              <img src={item.thumbnail} alt="" />
-            </div>
-          ))}
+        <div className="flex justify-center gap-10 py-[70px]">
+          <img src={airPood1} alt="" />
+        </div>
+        <div className="">
+          <a className=''>Our Brands</a>
+          <a className=''>Our Stores </a>
         </div>
       </Container>
     </section>

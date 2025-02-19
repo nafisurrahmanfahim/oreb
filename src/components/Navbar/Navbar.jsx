@@ -45,7 +45,7 @@ const Navbar = () => {
     }, [catShow, userShow, cartShow])
 
     return (
-        <section className='bg-[#F5F5F3] py-[25px]'>
+        <section className='bg-[#fff] pt-[100px] pb-[25px] fixed z-40 w-full'>
             <Container>
                 <div className="flex justify-between items-center">
                     <div className="w-[30%] relative">
@@ -84,10 +84,10 @@ const Navbar = () => {
                             </div>
                         </div>
                         {userShow &&
-                            <div className="absolute top-[150%] right-[30px] w-[150px] z-50">
-                                <ul className='bg-[#262626]'>
-                                    <li className='text-[rgba(255,255,255,0.71)] pl-5 py-2 border-b-[1px] border-[#fff] hover:pl-10 hover:text-white duration-300 ease-in-out cursor-pointer'>my account</li>
-                                    <li className='text-[rgba(255,255,255,0.71)] pl-5 py-2 hover:pl-10 hover:text-white duration-300 ease-in-out cursor-pointer'>Log out</li>
+                            <div className="absolute top-[150%] right-[30px] w-[240px] z-50">
+                                <ul className='text-center capitalize font-dm'>
+                                    <li className='text-[#262626] border-[1px] py-3 duration-300 ease-in-out cursor-pointer bg-[#fff] hover:bg-[#262626] hover:text-[#fff] hover:font-semibold'>my account</li>
+                                    <li className='text-[#262626] border-[1px] py-3 duration-300 ease-in-out cursor-pointer hover:bg-[#262626] hover:text-[#fff] hover:font-semibold'>Log out</li>
                                 </ul>
                             </div>
                         }

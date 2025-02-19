@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <section>
+        <section className='fixed w-full z-50 bg-[#fff]'>
             <Container>
                 <div className="py-[30px] flex justify-between items-center">
                     <div className="">
