@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FaCodeCompare, FaHeart, FaPlus } from "react-icons/fa6";
@@ -6,16 +6,23 @@ import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
 
 const Post = ({ allPage }) => {
+    let [active, setActive] = useState("");
+    let handleActive = () => {
+        setActive("active")        
+    }
+
+    console.log(active);
+    
 
     return (
 
         <div className="right w-[80%]">
             <div className="flex justify-between">
                 <div className="flex gap-[20px]">
-                    <div className='flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer'>
+                    <div onClick={()=> setActive("")} className='flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer'>
                         <IoGrid />
                     </div>
-                    <div className="flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer">
+                    <div onClick={handleActive} className="flex items-center justify-center w-[36px] h-[36px] border-[2px] text-[#262626] hover:text-[#fff] hover:bg-[#262626] duration-300 ease-in-out cursor-pointer">
                         <FaThList />
                     </div>
                 </div>
@@ -46,7 +53,7 @@ const Post = ({ allPage }) => {
                 </div>
 
             </div>
-            <div className="flex flex-wrap justify-between pt-4">
+            <div className={`${active == "active" ? "w-full" : "flex flex-wrap justify-between pt-4"}`}>
                 {allPage.map((item) => (
                     <div className="w-[32%]">
                         <div className="relative group overflow-y-hidden bg-[#efefef]">
