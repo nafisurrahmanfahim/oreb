@@ -1,9 +1,9 @@
 import React from 'react'
 import Container from '../components/Container'
-import product from '../assets/products1.png'
 import { Link } from 'react-router-dom'
-import { ApiData } from '../components/ContexxtApi'
-import airPood1 from '../assets/airPoods.png'
+import airPood1 from '../assets/airpoods.png'
+import airPood2 from '../assets/airpood2.png'
+
 const About = () => {
 
 
@@ -28,12 +28,36 @@ const About = () => {
             </li>
           </ol>
         </nav>
+
         <div className="flex justify-center gap-10 py-[70px]">
-          <img src={airPood1} alt="" />
+          <div className="w-[30%] h-[450px] bg-[#ebeaea] flex flex-col justify-center items-center">
+            <img src={airPood1} alt="" />
+            <a className='py-[18px] px-[69px] font-dm font-bold text-[16px] text-[#262626] bg-[#FFFFFF] border-[1px] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Our Brands</a>
+          </div>
+          <div className="w-[30%] h-[450px] bg-[#ebeaea] flex flex-col justify-center items-center">
+            <img src={airPood2} alt="" />
+            <a className="py-[18px] px-[69px] font-dm font-bold text-[16px] text-[#262626] bg-[#FFFFFF] border-[1px] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer">Our Stores</a>
+          </div>
         </div>
-        <div className="">
-          <a className=''>Our Brands</a>
-          <a className=''>Our Stores </a>
+        <div className="text-center">
+          <p className='font-dm font-normal text-[39px] text-[#262626]'>Orebi is one of the world’s leading ecommerce brands and is internationally recognized for celebrating the essence of classic Worldwide cool looking style.</p>
+        </div>
+
+        <div className="pt-[118px] flex justify-between">
+          <div className="w-[32%]">
+            <h3 className="font-dm font-bold text-[25px] text-[#262626]">Our Vision</h3>
+            <p className="font-dm font-normal text-[16px] text-[#767676] leading-[30px] py-[11px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an   printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
+
+          <div className="w-[32%]">
+            <h3 className="font-dm font-bold text-[25px] text-[#262626]">Our Story</h3>
+            <p className="font-dm font-normal text-[16px] text-[#767676] leading-[30px] py-[11px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.</p>
+          </div>
+
+          <div className="w-[32%]">
+            <h3 className="font-dm font-bold text-[25px] text-[#262626]">Our Brands</h3>
+            <p className="font-dm font-normal text-[16px] text-[#767676] leading-[30px] py-[11px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+          </div>
         </div>
       </Container>
     </section>
