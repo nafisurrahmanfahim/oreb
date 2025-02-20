@@ -45,7 +45,7 @@ const Banner = () => {
     };
 
     return (
-        <section>
+        <section className='pt-[200px]'>
             <Slider {...settings}>
                 <div className="">
                     <a href="#">
