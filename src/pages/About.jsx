@@ -8,7 +8,7 @@ const About = () => {
 
 
   return (
-    <section className='py-[180px]'>
+    <section className='py-[220px]'>
       <Container>
         <h3 className="font-dm font-bold text-[49px] text-[#262626]">About</h3>
         <nav class="flex py-[10px]" aria-label="Breadcrumb">
@@ -32,11 +32,11 @@ const About = () => {
         <div className="flex justify-center gap-10 py-[70px]">
           <div className="w-[30%] h-[450px] bg-[#ebeaea] flex flex-col justify-center items-center">
             <img src={airPood1} alt="" />
-            <a className='py-[18px] px-[69px] font-dm font-bold text-[16px] text-[#262626] bg-[#FFFFFF] border-[1px] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Our Brands</a>
+            <a className='py-[18px] px-[69px] font-dm font-bold text-[16px] text-[#262626] bg-[#FFFFFF] border-[1px] border-[#262626] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Our Brands</a>
           </div>
           <div className="w-[30%] h-[450px] bg-[#ebeaea] flex flex-col justify-center items-center">
             <img src={airPood2} alt="" />
-            <a className="py-[18px] px-[69px] font-dm font-bold text-[16px] text-[#262626] bg-[#FFFFFF] border-[1px] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer">Our Stores</a>
+            <a className="py-[18px] px-[69px] font-dm font-bold text-[16px] text-[#262626] bg-[#FFFFFF] border-[1px] border-[#262626] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer">Our Stores</a>
           </div>
         </div>
         <div className="text-center">

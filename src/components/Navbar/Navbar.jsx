@@ -45,7 +45,7 @@ const Navbar = () => {
     }, [catShow, userShow, cartShow])
 
     return (
-        <section className='bg-[#fff] pt-[100px] pb-[25px] fixed z-40 w-full'>
+        <section className='bg-[#DDDDDD] pt-[100px] pb-[25px] fixed z-40 w-full'>
             <Container>
                 <div className="flex justify-between items-center">
                     <div className="w-[30%] relative">

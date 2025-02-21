@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa'
 
 const Error = () => {
     return (
-        <section className="py-[20px]">
+        <section className="pt-[180px] pb-[40px]">
             <Container>
                 <div className="">
                     <h3 className="font-dm font-bold text-[200px] text-[#262626]">404</h3>

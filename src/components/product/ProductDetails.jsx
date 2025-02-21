@@ -51,10 +51,21 @@ const ProductDetails = () => {
     }, [2000])
   }
 
+  let [featureShow, setFeatureShow] = useState(false)
+  let [shippingShow, setShippingShow] = useState(false)
+  let handleFeature = () => {
+    setFeatureShow(!featureShow)
+    setShippingShow("")
+  }
+  let handleShipping = () => {
+    setShippingShow(!shippingShow)
+    setFeatureShow("")
+  }
+
   return (
     <section>
       <Container>
-        <nav class="flex py-[10px]" aria-label="Breadcrumb">
+        <nav class="flex pt-[220px]" aria-label="Breadcrumb">
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
             <li class="inline-flex items-center">
               <Link to="/" href="#" class="inline-flex items-center text-[18px] font-medium text-[#767676]">
@@ -132,6 +143,24 @@ const ProductDetails = () => {
               <a className='py-[16px] px-[41px] border-[1px] border-[#262626] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Add to Wish List</a>
               <a onClick={handleCart} className='py-[16px] px-[57px] border-[1px] border-[#262626] ml-[20px] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Add to Cart</a>
             </div>
+          </div>
+        </div>
+        <div className="">
+          <div onClick={handleFeature} className="flex cursor-pointer items-center justify-between font-dm font-bold text-[16px] text-[#262626] w-[40%]">
+            <h3 className=''>FEATURES  & DETAILS</h3>
+            {featureShow == true ? <FaMinus/> : <FaPlus/>}
+          </div>
+
+          <div className="py-[8px] w-[40%]">
+            {featureShow && "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+          </div>
+
+          <div onClick={handleShipping} className="flex cursor-pointer items-center justify-between font-dm font-bold text-[16px] text-[#262626] w-[40%] py-[22px]">
+            <h3 className="">SHIPPING & RETURNS</h3>
+            {shippingShow == true ? <FaMinus/> : <FaPlus/>}
+          </div>
+          <div className="w-[30%]">
+            {shippingShow && "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
           </div>
         </div>
       </Container>
