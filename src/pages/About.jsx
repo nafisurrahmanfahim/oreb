@@ -1,8 +1,8 @@
 import React from 'react'
 import Container from '../components/Container'
 import { Link } from 'react-router-dom'
-import airPood1 from '../assets/airpoods.png'
-import airPood2 from '../assets/airpood2.png'
+import airPood1 from '../assets/air.png'
+import airPood2 from '../assets/airtwo.png'
 
 const About = () => {
 
