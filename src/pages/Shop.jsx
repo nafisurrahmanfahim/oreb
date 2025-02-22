@@ -24,10 +24,11 @@ const Shop = () => {
 
 
   let pageNumber = []
+  // for (let i = 0; i < Math.ceil(info.length / perPage); i++) {
+  //   pageNumber.push(i);
+  // }
 
-  for (let i = 0; i < Math.ceil(info.length / perPage); i++) {
-    pageNumber.push(i);
-  }
+
 
   let Paginate = (state) => {
     setCurrentPage(state + 1)
@@ -47,16 +48,24 @@ const Shop = () => {
 
 
   let [categoryFilter, setCategoryFilter] = useState([])
-  let [bFilter, setBFilter] = useState([])
+  // let [bFilter, setBFilter] = useState([])
   let handleCategory = (citem) => {
     let cateFilter = info.filter((item) => item.category == citem)
     setCategoryFilter(cateFilter)
   }
 
+  for (let i = 0; i < Math.ceil(categoryFilter.length > 0 ? categoryFilter : info.length / perPage); i++) {
+    pageNumber.push(i);
+  }
+
   let handleBrand = (bitem) => {
     let brandFilter = info.filter((item) => item.brand == bitem)
-    setBFilter(brandFilter)
+    setCategoryFilter(brandFilter)
   }
+  console.log(categoryFilter);
+
+
+
 
 
   let [category, setCategory] = useState([])
@@ -78,7 +87,7 @@ const Shop = () => {
         <div className="pt-[100px] flex justify-between">
           <div className="left w-[20%] overflow-y-auto h-[870px] flex flex-col">
             <div className="font-dm">
-            <h3 onClick={()=> setCategoryFilter("")} className="text-[#262626] text-[16px] flex justify-between items-center py-[15px] pr-5 cursor-pointer">Show All</h3>
+              <h3 onClick={() => setCategoryFilter("")} className="text-[#262626] text-[16px] flex justify-between items-center py-[15px] pr-5 cursor-pointer">Show All</h3>
 
               <p className="font-bold text-[#262626] text-[20px] flex justify-between items-center py-[15px] pr-5 cursor-pointer" onClick={() => setCategoryShow(!categoryShow)}>Shop by Category {categoryShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
               {categoryShow &&
@@ -127,7 +136,7 @@ const Shop = () => {
               {brandShow &&
                 <ul className="py-[35px] text-[#767676]">
                   {brand.map((item) => (
-                    <li onClick={()=> handleBrand(item)} className="font-normal text-[16px] py-[15px]">{item}</li>
+                    <li onClick={() => handleBrand(item)} className="font-normal text-[16px] py-[15px]">{item}</li>
                   ))}
                 </ul>}
             </div>
