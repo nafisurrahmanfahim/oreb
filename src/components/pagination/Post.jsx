@@ -33,7 +33,6 @@ const Post = ({ allPage, categoryFilter }) => {
                 </div>
 
                 <div className="flex gap-[100px]">
-
                     <div className="flex">
                         <h3 className='font-dm font-normal text-[16px] text-[#767676] items-center pr-2 pt-1'>Sort By: </h3>
                         <select name="" id="" className='w-[310px] border-[1px] text-right'>

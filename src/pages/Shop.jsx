@@ -83,12 +83,10 @@ const Shop = () => {
         <div className="">
           <h3 className="font-dm font-bold text-[#262626] text-[49px]">Products</h3>
         </div>
-
+        <h3 onClick={() => setCategoryFilter("")} className="text-[#262626] text-[16px] flex justify-between items-center py-[15px] pr-5 cursor-pointer">Show All</h3>
         <div className="pt-[100px] flex justify-between">
           <div className="left w-[20%] overflow-y-auto h-[870px] flex flex-col">
             <div className="font-dm">
-              <h3 onClick={() => setCategoryFilter("")} className="text-[#262626] text-[16px] flex justify-between items-center py-[15px] pr-5 cursor-pointer">Show All</h3>
-
               <p className="font-bold text-[#262626] text-[20px] flex justify-between items-center py-[15px] pr-5 cursor-pointer" onClick={() => setCategoryShow(!categoryShow)}>Shop by Category {categoryShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
               {categoryShow &&
                 <ul className='py-[35px] cursor-pointer'>
