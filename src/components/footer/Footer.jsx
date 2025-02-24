@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="w-[30%] relative">
             <img src={logo} alt="" />
             <div className="absolute bottom-0 left-0 font-dm font-normal text-[#6D6D6D] text-[14px]">
-              <p className=''>2020 Orebi Minimal eCommerce Figma Template by Adveits</p>
+              <p className=''>2020 Orebi Minimal eCommerce Figma Template by Adveits  OP</p>
             </div>
           </div>
         </div>
