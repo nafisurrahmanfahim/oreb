@@ -14,11 +14,20 @@ const Post = ({ allPage, categoryFilter }) => {
 
     let [showFilter, setShowFilter] = useState([])
     useEffect(() => {
-        let filterSlie = categoryFilter.slice(0, 5)
-        setShowFilter(filterSlie)
+        let filterSlce = categoryFilter.slice(0, 5)
+        setShowFilter(filterSlce)
     }, [categoryFilter])
 
+    let handleAll = () => {
+        setShowFilter(categoryFilter)
+        setCount(false)
+    }
 
+    let handleLess = () => {
+        let filterSlice = categoryFilter.slice(0, 5)
+        setShowFilter(filterSlice)
+        setCount(true)
+    }
 
     return (
 
@@ -90,8 +99,8 @@ const Post = ({ allPage, categoryFilter }) => {
                                 </div>
                             ))}
                         </div>
-                        <div className="">
-                            {count ? categoryFilter.length > 5 && <h3>Show All</h3> : categoryFilter.length > 5 && <h3>Show Less</h3>}
+                        <div className="cursor-pointer">
+                            {count ? categoryFilter.length > 5 && <h3 onClick={handleAll}>Show All</h3> : categoryFilter.length > 5 && <h3 onClick={handleLess}>Less</h3>}
                         </div>
                     </>) : <div className={`${active == "active" ? "w-full" : "flex flex-wrap justify-between pt-4"}`}>
                     {allPage.map((item) => (

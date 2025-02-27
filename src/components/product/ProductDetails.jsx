@@ -6,12 +6,15 @@ import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slice/productSlice';
 
 
 const ProductDetails = () => {
 
   let productId = useParams()
   let naviget = useNavigate()
+  let dispacth = useDispatch()
   let [singleProduct, setSingleProduct] = useState({})
 
   let singleData = () => {
@@ -44,7 +47,9 @@ const ProductDetails = () => {
     }
   }
 
-  let handleCart = () => {
+  let handleCart = (item) => {
+    dispacth(addToCart({...item, qun: 1}))
+    
     toast("Wow so easy!");
     setTimeout(() => {
       naviget('/Cart')
@@ -141,7 +146,7 @@ const ProductDetails = () => {
 
             <div className="py-[50px] font-dm font-bold text-[#262626] text-[14px]">
               <a className='py-[16px] px-[41px] border-[1px] border-[#262626] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Add to Wish List</a>
-              <a onClick={handleCart} className='py-[16px] px-[57px] border-[1px] border-[#262626] ml-[20px] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Add to Cart</a>
+              <a onClick={()=> handleCart(singleProduct)} className='py-[16px] px-[57px] border-[1px] border-[#262626] ml-[20px] hover:bg-[#262626] hover:text-[#FFFFFF] duration-300 ease-in-out cursor-pointer'>Add to Cart</a>
             </div>
           </div>
         </div>

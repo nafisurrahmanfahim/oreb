@@ -97,7 +97,18 @@ const Shop = () => {
               }
             </div>
 
-            <div className="">
+
+            <div className="font-dm pb-[53px] pt-[15px] cursor-pointer">
+              <p className="font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5 cursor-pointer" onClick={() => setBrandShow(!brandShow)}>Shop by Brand {brandShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
+              {brandShow &&
+                <ul className="py-[35px] text-[#767676]">
+                  {brand.map((item) => (
+                    <li onClick={() => handleBrand(item)} className="font-normal text-[16px] py-[15px]">{item}</li>
+                  ))}
+                </ul>}
+            </div>
+
+            <div className="cursor-pointer">
               <p className="font-dm font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5 cursor-pointer" onClick={() => setColorShow(!colorShow)}>Shop by Color {colorShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
               {colorShow &&
                 <div className="py-[44px]">
@@ -127,16 +138,6 @@ const Shop = () => {
                   </div>
                 </div>
               }
-            </div>
-
-            <div className="font-dm pb-[53px] pt-[15px]">
-              <p className="font-bold text-[#262626] text-[20px] flex items-center justify-between pr-5 cursor-pointer" onClick={() => setBrandShow(!brandShow)}>Shop by Brand {brandShow == true ? <TiArrowSortedDown /> : <TiArrowSortedUp />}</p>
-              {brandShow &&
-                <ul className="py-[35px] text-[#767676]">
-                  {brand.map((item) => (
-                    <li onClick={() => handleBrand(item)} className="font-normal text-[16px] py-[15px]">{item}</li>
-                  ))}
-                </ul>}
             </div>
 
             <div className="font-dm">

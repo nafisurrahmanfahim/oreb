@@ -4,9 +4,13 @@ import './index.css'
 import "slick-carousel/slick/slick.css";
 import App from './App.jsx'
 import { ContextApi } from './components/ContextApi.jsx';
+import { store } from './Store.js';
+import { Provider } from 'react-redux'
 
 createRoot(document.getElementById('root')).render(
-  <ContextApi>
-    <App />
-  </ContextApi>
+  <Provider store={store}>
+    <ContextApi>
+      <App />
+    </ContextApi>
+  </Provider>
 )
