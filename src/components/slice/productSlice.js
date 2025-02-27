@@ -15,7 +15,6 @@ export const productSlice = createSlice({
         console.log("full details");
       } else{
         console.log("quntiti");
-        
       }
     },
   },

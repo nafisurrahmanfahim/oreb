@@ -17,9 +17,9 @@ const Navbar = () => {
     let userRef = useRef()
     let catref = useRef()
     let cartRef = useRef()
-    
 
-    let handleCross = ()=> {
+
+    let handleCross = () => {
         setCartShow(!cartShow)
     }
 
@@ -35,7 +35,7 @@ const Navbar = () => {
             } else {
                 setUserShow(false)
             }
-            if(cartRef.current.contains(e.target)) {
+            if (cartRef.current.contains(e.target)) {
                 setCartShow(!cartShow)
             } else {
                 setCartShow(false)
@@ -85,7 +85,7 @@ const Navbar = () => {
                         </div>
                         {userShow &&
                             <div className="absolute top-[150%] right-[30px] w-[240px] z-50">
-                                <ul className='text-center capitalize font-dm'>
+                                <ul className='text-center capitalize font-dm bg-[#fff]'>
                                     <li className='text-[#262626] border-[1px] py-3 duration-300 ease-in-out cursor-pointer bg-[#fff] hover:bg-[#262626] hover:text-[#fff] hover:font-semibold'>my account</li>
                                     <li className='text-[#262626] border-[1px] py-3 duration-300 ease-in-out cursor-pointer hover:bg-[#262626] hover:text-[#fff] hover:font-semibold'>Log out</li>
                                 </ul>
