@@ -56,7 +56,7 @@ const Cart = () => {
             <div className="py-[60px] flex gap-[30px] items-center font-dm font-normal text-[#767676] text-[16px]">
               <FaMinus/>
               <h3 className="font-dm font-normal text-[#767676] text-[16px]">1</h3>
-              <FaPlus/>
+              <FaPlus/>s
             </div>
           </div>
 
