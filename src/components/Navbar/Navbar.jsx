@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Container from '../Container'
 import { RiMenu2Line } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
@@ -7,8 +7,8 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import image from "../../assets/Image.png"
 import { RxCross2 } from "react-icons/rx";
-
-
+import { useSelector } from 'react-redux'
+import { ApiData } from '../ContextApi';
 
 const Navbar = () => {
     let [catShow, setCatShow] = useState(false)
@@ -44,6 +44,26 @@ const Navbar = () => {
         })
     }, [catShow, userShow, cartShow])
 
+
+    let data = useSelector((state) => state.product.cartItem)
+
+    let info = useContext(ApiData)
+    let [search, setSearch] = useState('')
+    let [searchFilter, setSearchFilter] = useState([])
+
+    let handleSearch = (e) => {
+        setSearch(e.target.value);
+        if (e.target.value == "") {
+            setSearchFilter([])
+        } else {
+            let searchOne = info.filter((item) => item.title.toLowerCase().includes(e.target.value.toLowerCase()))
+            setSearchFilter(searchOne)
+        };
+    };
+
+    console.log(searchFilter);
+    
+
     return (
         <section className='bg-[#DDDDDD] pt-[100px] pb-[25px] fixed z-40 w-full'>
             <Container>
@@ -68,7 +88,7 @@ const Navbar = () => {
 
                     </div>
                     <div className="w-[40%] relative">
-                        <input type="search" placeholder='Search Products' className='w-full h-[50px] pl-[21px] pr-[35px]' />
+                        <input onChange={handleSearch} type="search" placeholder='Search Products' className='w-full h-[50px] pl-[21px] pr-[35px]' />
                         <div className="absolute top-[50%] translate-y-[-50%] right-[15px]">
                             <FaSearch />
                         </div>
@@ -79,8 +99,11 @@ const Navbar = () => {
                                 <FaUser />
                                 <MdOutlineArrowDropDown />
                             </div>
-                            <div className="cursor-pointer" ref={cartRef}>
+                            <div className="cursor-pointer relative" ref={cartRef}>
                                 <FaShoppingCart />
+                                {data.length > 0 ? <div className="absolute top-[-9px] right-[-15px] w-[20px] h-[20px] bg-[#000] rounded-full text-[#fff] text-[12px] flex items-center justify-center">
+                                    {data.length}
+                                </div> : ""}
                             </div>
                         </div>
                         {userShow &&

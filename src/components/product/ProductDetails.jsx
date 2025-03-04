@@ -53,8 +53,10 @@ const ProductDetails = () => {
     toast("Wow so easy!");
     setTimeout(() => {
       naviget('/Cart')
-    }, [2000])
+    }, [1000])
   }
+
+  //--//
 
   let [featureShow, setFeatureShow] = useState(false)
   let [shippingShow, setShippingShow] = useState(false)
