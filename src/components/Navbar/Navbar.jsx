@@ -10,6 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useSelector } from 'react-redux'
 import { ApiData } from '../ContextApi';
 // import ProductDetails from '../product/ProductDetails';
+import { CiSearch } from "react-icons/ci";
 
 const Navbar = () => {
     let [catShow, setCatShow] = useState(false)
@@ -103,7 +104,7 @@ const Navbar = () => {
                             <div className="absolute top-[50px] z-[2] left-0 w-[570px] h-[300px] bg-[gray] overflow-y-scroll">
                                 <ul>
                                     {searchFilter.map((item) => (
-                                        <li>{item.title}</li>
+                                        <li className='flex pl-[5px] items-center gap-2 pt-[4px]'><span className='text-[#000] pr-[4px] font-normal'><CiSearch/></span>{item.title}</li>
                                     ))}
                                 </ul>
                             </div>}
