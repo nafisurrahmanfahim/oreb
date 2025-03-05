@@ -9,6 +9,7 @@ import image from "../../assets/Image.png"
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from 'react-redux'
 import { ApiData } from '../ContextApi';
+// import ProductDetails from '../product/ProductDetails';
 
 const Navbar = () => {
     let [catShow, setCatShow] = useState(false)
@@ -61,8 +62,13 @@ const Navbar = () => {
         };
     };
 
-    console.log(searchFilter);
-    
+
+    // let [searchProduct, setSearchProduct] = useState([])
+    // let handleDetail = (sItem) => {
+    //     let detail = info.filter((item)=> item.title)
+    //     console.log(sItem)
+    // }
+
 
     return (
         <section className='bg-[#DDDDDD] pt-[100px] pb-[25px] fixed z-40 w-full'>
@@ -92,6 +98,15 @@ const Navbar = () => {
                         <div className="absolute top-[50%] translate-y-[-50%] right-[15px]">
                             <FaSearch />
                         </div>
+
+                        {searchFilter.length > 0 &&
+                            <div className="absolute top-[50px] z-[2] left-0 w-[570px] h-[300px] bg-[gray] overflow-y-scroll">
+                                <ul>
+                                    {searchFilter.map((item) => (
+                                        <li>{item.title}</li>
+                                    ))}
+                                </ul>
+                            </div>}
                     </div>
                     <div className="w-[30%] relative">
                         <div className="flex justify-end gap-x-[40px]">

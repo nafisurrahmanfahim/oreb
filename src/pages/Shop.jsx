@@ -62,7 +62,6 @@ const Shop = () => {
     let brandFilter = info.filter((item) => item.brand == bitem)
     setCategoryFilter(brandFilter)
   }
-  console.log(categoryFilter);
 
 
 
